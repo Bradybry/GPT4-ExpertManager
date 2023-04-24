@@ -1,11 +1,41 @@
 import ast
 import json
 from langchain.chat_models import ChatOpenAI
-
+from langchain.llms import Anthropic
 from langchain.schema import HumanMessage, SystemMessage
-from config import OPENAI_API_KEY
+from config import OPENAI_API_KEY, ANTHROPIC_API_KEY
 import datetime
 from pathlib import Path
+
+
+
+
+class OpenAIModel():
+    def __init__(self, openai_api_key, **model_params):
+        self.chat = ChatOpenAI(openai_api_key=openai_api_key, **model_params)
+    
+    def __call__(self, request_messages):
+        return self.chat(request_messages).content
+    
+    def bulk_generate(self, message_list):
+        return self.chat.generate(message_list)
+
+class AnthropicModel():
+    def __init__(self, anthropic_api_key, **model_params):
+        self.chat = Anthropic(model=model_params['model_name'], max_tokens_to_sample=model_params['max_tokens'], anthropic_api_key=anthropic_api_key)
+    
+    def __call__(self, request_messages):
+        # Convert request_messages into a single string to be used as preamble
+        message = "\n\n".join([message.content for message in request_messages])
+        return self.chat(message)
+    
+    def bulk_generate(self, message_list):
+        new_message_list = []
+        for request_messages in message_list:
+            new_message = "\n".join([message.content for message in request_messages])
+            new_message_list.append(new_message)
+        return self.chat.generate(new_message_list)
+
 
 class LanguageExpert(dict):
     def __init__(self, name: str, system_message: str, description=None, example_input=None, example_output=None, model_params=None):
@@ -17,7 +47,7 @@ class LanguageExpert(dict):
         if model_params is None:
             model_params = {"model_name": "gpt-4", "temperature":  0.00, "frequency_penalty": 1.0, "presence_penalty":  0.5, "n": 1, "max_tokens":  512}
         self.model_params = model_params
-        self.chat = ChatOpenAI(openai_api_key=OPENAI_API_KEY, **model_params)
+        self.gen_chat()
 
     def serialize(self):
         return {
@@ -32,14 +62,14 @@ class LanguageExpert(dict):
     def get_content(self):
         example_output = self.example_output
         example_input = self.example_input
-        content = f'System Message: {self.system_message}\n\nExample Input: {example_input}\n\nExample Output: {example_output}'
+        content = f'---\nInstructions: {self.system_message}\n\nExample Input: {example_input}\n\nExample Output: {example_output}\n---'
         content  = SystemMessage(content=content)
         return content
     
     def generate(self, message):
         human_message = HumanMessage(content=message)
         request_message = [self.get_content(), human_message]
-        response  = self.chat(request_message).content
+        response  = self.chat(request_message)
         self.log(message, response)
         return response
 
@@ -57,7 +87,7 @@ class LanguageExpert(dict):
     def bulk_generate(self, messages:list):
         human_messages = [HumanMessage(content=message) for message in messages]
         request_messages = [[self.get_content(), human_message] for human_message in human_messages]
-        responses = self.chat.generate(request_messages)
+        responses = self.chat.bulk_generate(request_messages)
         responses = self.extract_texts_from_generations(responses.generations)
         self.log(messages, responses)
         return responses
@@ -70,10 +100,15 @@ class LanguageExpert(dict):
             self.__dict__["model_params"][parameter_name] = new_value
         else:
             self.__dict__[parameter_name] = new_value
-        self.regen_chat()
+        self.gen_chat()
     
-    def regen_chat(self):
-        self.chat = ChatOpenAI(openai_api_key=OPENAI_API_KEY, **self.model_params)
+    def gen_chat(self):
+        if self.model_params["model_name"]in ["gpt-4", "gpt-3.5-turbo"]:
+            self.chat = OpenAIModel(openai_api_key=OPENAI_API_KEY, **self.model_params)
+        elif self.model_params["model_name"] in ['claude-v1.3']:
+            self.chat = AnthropicModel(anthropic_api_key=ANTHROPIC_API_KEY, **self.model_params)
+        else:
+            raise 'Model not supported'
     
     def gen_from_file(self, infile):
         message = self.get_file_content(infile)
@@ -126,6 +161,7 @@ def gen_prompt(manager):
     manager.add_expert(expert)
     print(expert.name)
     print(expert.get_content().content)
+    return expert
     
 def improve(target, manager):
     improver = manager.get_expert('PromptImproverV2')
