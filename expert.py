@@ -1,4 +1,4 @@
-import ast
+import re
 import json
 from langchain.chat_models import ChatOpenAI
 from langchain.llms import Anthropic
@@ -62,7 +62,7 @@ class LanguageExpert(dict):
     def get_content(self):
         example_output = self.example_output
         example_input = self.example_input
-        content = f'---\nInstructions: {self.system_message}\n\nExample Input: {example_input}\n\nExample Output: {example_output}\n---'
+        content = f'<assistant_definition><name>{self.name}</name><role>{self.description}</role><system_message>{self.system_message}</system_message><example_input>{example_input}</example_input><example_output>{example_output}</example_ouput></assistant_definition>'
         content  = SystemMessage(content=content)
         return content
     
@@ -149,14 +149,39 @@ class Manager(object):
     def load(self, infile):
         with open(infile, 'r') as f:
             self.experts = json.load(f)
+def parse_assistant_definition(markdown_text):
+    # Define patterns for extracting different parts of the assistant definition
+    name_pattern = re.compile(r'<name>(.*?)<\/name>', re.DOTALL)
+    role_pattern = re.compile(r'<role>(.*?)<\/role>', re.DOTALL)
+    system_message_pattern = re.compile(r'<system_message>(.*?)<\/system_message>', re.DOTALL)
+    example_input_pattern = re.compile(r'<example_input>(.*?)<\/example_input>', re.DOTALL)
+    example_output_pattern = re.compile(r'<example_output>(.*?)<\/example_output>', re.DOTALL)
+    
+    # Extract the role (as name), system_message, example_input, and example_output from the markdown text
+    name = name_pattern.search(markdown_text).group(1).strip()
+    role = role_pattern.search(markdown_text).group(1).strip()
+    system_message = system_message_pattern.search(markdown_text).group(1).strip()
+    example_input = example_input_pattern.search(markdown_text).group(1).strip()
+    example_output = example_output_pattern.search(markdown_text).group(1).strip()
+    
+    # Create a dictionary with the extracted information, using key names matching the original JSON-like dictionary
+    assistant_definition = {
+        'name': name,
+        'description': role,
+        'system_message': system_message,
+        'example_input': example_input,
+        'example_output': example_output
+    }
+    
+    return assistant_definition
 
 def gen_prompt(manager):
-    generator = manager.get_expert('PromptGeneratorV2')
-    idea = manager.get_expert('PromptIdeaExpander')
+    generator = manager.get_expert('Prompt_GeneratorV3')
+    idea = manager.get_expert('PromptIdeaExpanderV3')
     expandedIdea = idea.gen_from_file('./promptpad.txt')
-    expandedIdea = f'Generate a prompt from the following proposal:\n{expandedIdea}'
+    expandedIdea = f'<prompt_proposal>{expandedIdea}</prompt_proposal> Please generate a properly formatted prompt based on the supplied prompt proposal. '
     formattedPrompt = generator(expandedIdea)
-    prompt = ast.literal_eval(formattedPrompt)
+    prompt = parse_assistant_definition(formattedPrompt)
     expert = LanguageExpert(**prompt)
     manager.add_expert(expert)
     print(expert.name)
@@ -168,12 +193,12 @@ def improve(target, manager):
     suggestion = manager.get_expert('PromptSuggestionIncorporator')
     content  = target.get_content().content
     recommendations = improver(content)
-    base = str({k:target.__dict__[k] for k in ('name', 'system_message', 'description', 'example_input', 'example_output') if k in target.__dict__})
-    prompt  = f'Base Prompt:\n{base}\n\n{recommendations}'
+    base = target.get_content().content
+    prompt  = f'<original-prompt>{base}</originalprompt><prompt-recommendations>{recommendations}</prompt-recommendations>'
     new_expert = suggestion(prompt)
     print(recommendations)
     try:
-        new_expert = ast.literal_eval(new_expert)
+        new_expert = parse_assistant_definition(new_expert)
         new_expert = LanguageExpert(**new_expert)
     except:
         print('Failed to parse suggestion')
