@@ -75,7 +75,7 @@ class LanguageExpert:
         
         ##Set default model parameters if none provided##
         if model_params is None:  
-            model_params = {"model_name": "gpt-4", "temperature":  0.00,  
+            model_params = {"model_name": "claude-v1.3", "temperature":  0.00,  
                             "frequency_penalty": 1.0, "presence_penalty":  0.5,  
                             "n": 1, "max_tokens":  512}
         self.model_params = model_params
@@ -354,7 +354,7 @@ def gen_prompt(manager):
     generator = manager.get_expert('Prompt_GeneratorV3')
     idea = manager.get_expert('PromptIdeaExpanderV3')
     expandedIdea = idea.gen_from_file('./promptpad.txt')
-    expandedIdea = f'<prompt_proposal>{expandedIdea}</prompt_proposal> Please generate a properly formatted prompt based on the supplied prompt proposal. '
+    expandedIdea = f'<prompt_proposal>{expandedIdea}</prompt_proposal> Please generate a properly formatted agent definition based on the supplied prompt proposal. '
     formattedPrompt = generator(expandedIdea)
     prompt = parse_assistant_definition(formattedPrompt)
     expert = LanguageExpert(**prompt)
@@ -382,7 +382,7 @@ def improve(target, manager):
     suggestion = manager.get_expert('PromptSuggestionIncorporator')
     content  = target.get_content().content
     recommendations = improver(f'<input>Agent Definition to be improved:\n\n{content}\n\nPlease provide recommendations for improving the agent definition.</input>')
-    prompt  = f'<input><original_prompt>{content}</original_prompt><prompt_recommendations>{recommendations}</prompt_recommendations> Please generate a new agent definition based on the supplied prompt and recommendations.</input>'
+    prompt  = f'<input><original_prompt>{content}</original_prompt><prompt_recommendations>{recommendations}</prompt_recommendations> Please generate a new agent definition based on the supplied prompt and recommendations. It should follow the agent definition format.</input>'
     print(recommendations)
     new_expert = suggestion(prompt)
     try:
