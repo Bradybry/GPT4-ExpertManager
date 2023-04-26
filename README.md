@@ -1,8 +1,7 @@
 # GPT4-ExpertManager
 
-# Readme for PromptParser
 
-This module provides a manager and API wrapper for interacting with large language models to generate prompts and assistant definitions. It relies on the [langchain](https://github.com/hwchase17/langchain) library as well as the OpenAI and Anthropic APIs.
+This module provides a prompt library manager and API wrapper for interacting with large language models to generate prompts and assistant definitions. It relies on the [langchain](https://github.com/hwchase17/langchain) library as well as the OpenAI and Anthropic APIs.
 
 ## Installation
 This package is not currently available on PyPI. To install clone the repo and install Langchain, Anthropic, and OpenAI PyPI packages.
