@@ -70,14 +70,21 @@ class LanguageExpert(dict):
         human_message = HumanMessage(content=message)
         request_message = [self.get_content(), human_message]
         response  = self.chat(request_message)
-        self.log(message, response)
+        self.log([message], [response])
         return response
 
-    def log(self, message, response):
+    def log(self, requests, responses):
         now = datetime.datetime.now()
         filename = Path(f'./logs/{now.strftime("%Y-%m-%d_%H-%M-%S")}_{self.name}.txt')
         filename.parent.mkdir(parents=True, exist_ok=True)
-        log = f'Expert Name:{self.name}\n\nReponse:{response}\n\noriginal message:{message}'
+        
+        log = f'Expert Name: {self.name}\n\nRequests:\n'
+        for request in requests: 
+            log += f'{request}\n\n'
+        log += 'Responses:\n'
+        for response in responses:
+            log += f'{response}\n\n'
+        
         with open(filename, 'w', encoding='utf-8') as f:
             f.write(log)
     
@@ -192,15 +199,13 @@ def improve(target, manager):
     improver = manager.get_expert('PromptImproverV2')
     suggestion = manager.get_expert('PromptSuggestionIncorporator')
     content  = target.get_content().content
-    recommendations = improver(content)
-    base = target.get_content().content
-    prompt  = f'<original-prompt>{base}</originalprompt><prompt-recommendations>{recommendations}</prompt-recommendations>'
-    new_expert = suggestion(prompt)
+    recommendations = improver(f'<input>Agent Definition to be improved:\n\n{content}\n\nPlease provide recommendations for improving the agent definition.</input>')
+    prompt  = f'<input><original_prompt>{content}</original_prompt><prompt_recommendations>{recommendations}</prompt_recommendations> Please generate a new agent definition based on the supplied prompt and recommendations.</input>'
     print(recommendations)
+    new_expert = suggestion(prompt)
     try:
         new_expert = parse_assistant_definition(new_expert)
-        new_expert = LanguageExpert(**new_expert)
+        new_expert = LanguageExpert(**new_expert,model_params=target.model_params)
     except:
         print('Failed to parse suggestion')
-    print(new_expert)
     return new_expert
