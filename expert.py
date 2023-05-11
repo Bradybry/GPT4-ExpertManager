@@ -1,7 +1,6 @@
 import re
 import json
-from langchain.chat_models import ChatOpenAI
-from langchain.llms import Anthropic
+from langchain.chat_models import ChatOpenAI, ChatAnthropic
 from langchain.schema import HumanMessage, SystemMessage
 from config import OPENAI_API_KEY, ANTHROPIC_API_KEY #Import API Keys stored in a separate file. You can do this with envionrment variables as well.
 import datetime
@@ -12,12 +11,6 @@ from pathlib import Path
 # Class to communicate with OpenAI for generating responses. Wrapped around the langchain wrappers
 class OpenAIModel():
     def __init__(self, openai_api_key, **model_params):
-        """Initialize the OpenAI chat model.
-
-        Parameters:
-        openai_api_key (str): API key to access OpenAI API
-        model_params (dict): Parameters to configure the model like temperature, n, etc.
-        """
         self.chat = ChatOpenAI(openai_api_key=openai_api_key, **model_params)
     
     def __call__(self, request_messages):
@@ -26,31 +19,16 @@ class OpenAIModel():
     def bulk_generate(self, message_list):
         return self.chat.generate(message_list)
 
-# Class to communicate with claude-v1.3 for generating responses. Wrapped around the langchain wrappers
 class AnthropicModel():
     def __init__(self, anthropic_api_key, **model_params):
-        """Initialize the Anthropic chat model.
-
-        Parameters:
-        anthropic_api_key (str): API key to access Anthropic API
-        model_params (dict): Parameters to configure the model like model_name, max_tokens, etc.
-        """
-        self.chat = Anthropic(model=model_params['model_name'], max_tokens_to_sample=model_params['max_tokens'], anthropic_api_key=anthropic_api_key)
+        self.chat = ChatAnthropic(model=model_params['model_name'], max_tokens_to_sample=model_params['max_tokens'], anthropic_api_key=anthropic_api_key)
     
     def __call__(self, request_messages):
         # Convert request_messages into a single string to be used as preamble
-        # This is a hacky solution to the fact that the langchain wrapper expects a single string as input. 
-        # But the performance is actaualy really good especially with the XML formatting method.
-        message = "\n\n".join([message.content for message in request_messages])
-        return self.chat(message)
+        return self.chat(request_messages)
     
     def bulk_generate(self, message_list):
-        new_message_list = []
-        for request_messages in message_list:
-            new_message = "\n".join([message.content for message in request_messages])
-            new_message_list.append(new_message)
-        return self.chat.generate(new_message_list)
-
+        return self.chat.generate(message_list)
 
 class LanguageExpert: 
     """Defines an AI assistant/expert for natural language generation.  
@@ -63,7 +41,7 @@ class LanguageExpert:
     example_output (str): Expert's response to the sample input
     model_params (dict): Parameters to configure the language model
     """
-    def __init__(self, name: str, system_message: str, description=None,  
+    def __init__(self, name: str, system_message=None, description=None,  
                  example_input=None, example_output=None, model_params=None):  
 
         ## Initialize expert attributes##
@@ -104,8 +82,27 @@ class LanguageExpert:
         """
         example_output = self.example_output
         example_input = self.example_input
-        content = f'<assistant_definition><name>{self.name}</name><role>{self.description}</role><system_message>{self.system_message}</system_message><example_input>{example_input}</example_input><example_output>{example_output}</example_ouput></assistant_definition>'
-        content  = SystemMessage(content=content)
+
+        content = '<assistant_definition>\n'
+
+        if self.name:
+            content += f'<name>{self.name}</name>\n'
+
+        if self.description:
+            content += f'<role>{self.description}</role>\n'
+
+        if self.system_message:
+            content += f'<system_message>{self.system_message}</system_message>\n'
+
+        if example_input:
+            content += f'<example_input>{example_input}</example_input>\n'
+
+        if example_output:
+            content += f'<example_output>{example_output}</example_output>\n'
+
+        content += '</assistant_definition>'
+
+        content = SystemMessage(content=content)
         return content
     
     def generate(self, message): 
@@ -204,36 +201,10 @@ class LanguageExpert:
         """
         if self.model_params["model_name"]in ["gpt-4", "gpt-3.5-turbo"]:
             self.chat = OpenAIModel(openai_api_key=OPENAI_API_KEY, **self.model_params)
-        elif self.model_params["model_name"] in ['claude-v1.3']:
+        elif self.model_params["model_name"] in ['claude-v1.3', 'claude-v1.3-100k']:
             self.chat = AnthropicModel(anthropic_api_key=ANTHROPIC_API_KEY, **self.model_params)
         else:
             raise 'Model not supported'
-    
-    def gen_from_file(self, infile):
-        """Generates a response for the text content from a provided file.
-
-        Parameters:
-        infile (str): Path to input file containing message text
-
-        Returns:
-        response (str): Expert's response to the message in the file
-        """
-        message = self.get_file_content(infile)
-        return self(message)
-    
-    def get_file_content(self, infile): 
-        """Extracts text content from an input file.
-
-        Parameters:
-        infile (str): Path to input file
-
-        Returns: 
-        text (str): Text content from the input file
-        """
-        with open(infile, 'r', encoding='utf-8') as f:
-            text = f.readlines()
-            text = "".join(text)
-        return text
     
 class Manager(object):
     """A class to manage and manipulate a collection of language experts.
