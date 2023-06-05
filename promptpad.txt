@@ -1,0 +1,162 @@
+<ideas>
+<setting>
+Title: Beyond Reason
+Setting: A seemingly utopic future where technology and biology have reached their limits, society has functional immortality, and human rationality is the highest value commodity. “Weak AGI” performs all physical and nearly cognitive labor. 
+
+However, despite centuries of effort, an intelligence that exceeds humanity’s has yet to be created. Top AI scientists have mostly given up on the problem after coining the term "Transcendence Threshold," which is a hypothesized point on the intelligence scale in which any AI beyond that point will rapidly self-improve before realizing some truth about rationality or the universe that causes the most optimal next decision to be to "leave" the universe. At the start of the story, this effect has only been observed in computer systems. 
+
+In the time since the discovery of the transcendence threshold, modifying human biology to enhance rational thought has been the primary driver of progress since all other endeavors have been automated. Therefore, humans have modified themselves to be networked with external memory storage, enhanced cognition, enhanced sense, and accelerated processing. Various kinds of nootropics exist for increasing the abilities of the human brain. The collective networking of humans is called the stem. Each planet in humanity’s domain has a different version of the stem due to light speed delay causing each system to gradually branch.
+
+Due to an advanced surveillance state and humanity’s extreme devotion to rational thought, crimes occur very rarely. However, they still occur on occasion. The punishment for crimes is a brain implant that bans the use of nootropics and other intelligence enhancing devices. Individuals who have spent most of their life “connected to the stem” often take years to adapt back to the old way of thinking. Due to the loss of their external memory drives, they also remember very little about their life. This experience is debilitating for most and an effective deterrent against crime. Individuals without implants are called Wards since they have no hope of contributing to society without brain enhancements and thus rely on government assistance. They live comfortable but seemingly meaningless lives until their sentences have been served and they can reconnect to the Stem. To further ostracize them, their names are taken and replaced with numbers.
+
+At some point it was discovered that certain Wards had an unusual ability to solve crimes despite their severely limited cognitive abilities. The elite theorize that crime must inherently be irrational and therefore best understood by those who cannot control their emotions. Wards that demonstrate this ability are press ganged into the itinerant judge program which is a group of wards sent from system to system solving the crimes that standard detectives cannot solve. These individuals are called Judges. Judges have a paradoxical status in society. On the one hand they have abilities that no other people do and therefore are valuable. As a result, they are given wide reaching powers that the average citizen does not have. On the other hand, their existence serves as a counterpoint to society’s ideals and as a result are often on the butt end of discrimination.  However, over the centuries Judges have developed a mysterious reputation due to their rarity and unique abilities. Disconnected from the stem, Judges thoughts and intentions are unreadable adding to their mysterious reputation which borders on supernatural.
+</setting>
+
+<characters>
+Main Characters:
+1. Judge-1072: A highly intuitive and empathetic judge who solves complex cases that computers cannot.
+2. Ward-23: Judge-1072's new assistant ward, a former perpetrator of emotional crimes, now cut off from the stem and devoid of personal identity. Ward-23 scored very highly on the Judge Aptitude test and the state hopes to one day turn him into a judge. Secret: Ward is the perpetrator of the crime and the inventor of the nootropic drug.
+3. Victim: The world's oldest man and the inventor of functional immortality aka ammortality.
+4. Love interest for Ward: A secrete double agent for the god paradox cult, they ingratiate themselves as a helpful guide of the Capital City. They attempt to manipulate Ward into a relationship to gather confidential information about the investigation. After falling out, they ultimately switch sides and supports Ward.
+Mara was raised in the capital city, indoctrinated in the cult of radical rationality from birth. She excelled in her education and training, quickly achieving a prestigious position monitoring citizens for deviant behavior. Her job was to ensure absolute logic and order.
+Mara dreamed of working for the legendary figure who made immortality possible. Her ambition and dedication earned her a role assisting him with business affairs – more than just an assistant, she had the trust of the oldest man and effectively runs most of the day to day operations while the oldest man worked on his eccentric side projects.
+The disappearance of the oldest man thrust Mara into a tangled web of corporate intrigue and power struggles as others sought to fill the void left behind. The board of directors order her to find out what happened and report it to the board so that the company could decide how to handle the event. After failing to solve the case on her own, she was tasked with helping the investigators arriving from another planet with a secrete mission of reporting their discoveries so that the company can stay one step ahead. 
+When Judge-1072 and his ward were assigned to investigate, Mara was tasked with spying on their unorthodox methods. She was unsettled by their ability to make inductive leaps that logic said were impossible. Most of all, she found herself drawn to the ward whose childlike charm awoke yearnings she did not know she possessed.
+Torn between duty to report the judges' dangerous irrationality and her growing connection to the ward, Mara realizes the limits of pure reason. As she witnesses the humanity Judge and his ward reclaim, she starts to understand all that has been lost. But exposing the truth may cost Mara everything she once held dear and requires sacrificing the future she had shaped for one yet to be defined.
+Caught between two worlds, Mara represents the hope of rediscovering meaning and purpose, if only humanity can let go of rigid control and embrace the very part of itself it fears: emotions, intuition and love. Her journey to find her own humanity and fight for a life worth living turns her role as a spy into that of a revolutionary - one who can change the system from within by awakening to the truth. But whether anyone will follow where she leads remains to be seen.
+
+5. ACE: Ambulatory Service and Exploration Unit, ASE Unit, affectionately called ACE is Judge’s personal android that helps him interact with the stem connected world which he cannot. Judge’s anthropomorphic attitude towards ACE makes many people uncomfortable which is part of the reason he does it.
+</characters>
+
+<facts>
+2. Setting: Explore the futuristic world with functional immortality, lack of empathy, and the AI Transcendence Threshold.
+
+3. The Disappearance: The world's oldest man and inventor of functional immortality vanishes into thin air. Judge-1072 and Ward-23 are assigned to investigate.
+
+4. Investigation: The duo uncovers hidden motives, secrets surrounding the victim, the invention of functional immortality, and the mysterious Transcendence Threshold. As they delve deeper into the case, they discover the existence of a nootropic drug that is far more effective than any that have been developed before. A new hypothesis is developed: What if this drug puts the human brain beyond the transcendence threshold? If so, was the oldest man’s disappearance an accident or was it done on purpose? Does that even count as murder? The investigation quickly becomes dedicated to determining who developed this drug. However, now that the cat is out of the bag, massive corporate interests begin competing in solving this mystery so that they can control this dangerous nootropic.
+
+5. Empathy: Judge-1072 and Ward-23 realize that empathy and irrational thought have been undervalued in their society. By overvaluing rationality, humanity has overlooked many of the aspects that make life worth living in the first place. Furthermore, the mystery cannot be solved by looking at the problem objectively. Only once they realize that the crime was not done out of cold rationality, but the fire of irrational passion does the duo finally put the clues together and solve the case.
+
+6. Climax: The duo exposes the truth behind the nootropic drug and its connection to the Transcendence Threshold. Ward-23's past and his invention of the drug play a crucial role in solving the case. They must use their combined abilities to prevent further misuse of the drug and confront the consequences of their society's choices.
+
+7. Resolution: The case is solved, and Judge-1072 is forced to arrest Ward-23 but is conflicted due to his belief in Ward-23's just actions. Society begins to question the ethics of immortality and the loss of empathy. Ward-23 finishes his confession, promising to send his memoir to a news agency. The story ends with an uncertain future for Ward-23 as Judge-1072 approaches him.
+
+8. Explanation of the title: The god paradox is a reference to a cult belief that the transcendence threshold is in fact the apotheosis of a being from mere mortal to omnipotent deity. Followers of the god paradox deify computers that have accomplished transcendence. The cult worships these computers in hopes that they may be granted miracles or favor in the afterlife. The god paradox cult is the primary antagonist of the second part of the novel as it is revealed that they are a highly influential faction controlling many aspects of society.
+
+9. Motive for Ward-23: Ward-23 is the oldest man’s illegitimate son, born from an affair back in the mortal age before the oldest man invented immortality. The oldest man believes that the affair was his last “irrational” act as a mortal and has hidden the truth from the world. At a young age, Ward-23 learned of his heritage and developed a deep anger towards society’s value for rational thought and behavior since it implies that Ward himself is simply an error. Ward dedicates his life to proving that mistakes are the source of ingenuity and beauty. Eventually Ward finds himself working in one of his own father’s biotechnology labs working on cutting edge nootropics. Ward makes the critical insight that creates a nootropic stimulant that allows neurons to recursively self-assemble into more efficient networks. Ward theorizes that this feedback loop could create a self-improvement loop akin to the transcendence threshold. Instead of using the research to make himself as rich and powerful as his father, in a moment of misguided he decides to send a sample to his father. Ward himself wasn’t even sure why. Was it to kill his father?  Or did he hope that it would make his father smart enough to see the error of his ways and accept his only son? Regardless, Ward knew that his father’s avarice for power and intelligence would make trying the nootropic irresistible. However, before the drug was delivered, Ward was arrested for stealing research from the lab and sentenced to serve as a Ward. Due to the identity suppression, Ward is not able to consciously recall his past life. Layers of irony stack on each other. Humanity blinded itself from the true value of human irrationality and in the process reduced its ability to innovate in the first place. Ward borne of irrationality is the only person to achieve what society has dedicated countless resources to discover. The oldest man, in an attempt to gain power, meticulously covered up the providence of the nootropic and in the process made solving his disappearance nearly impossible. The ultimate irony being that by becoming a god, the oldest man has removed his own free will and therefore cannot reap the rewards he desires in the first place.
+</facts>
+
+<rough outline>
+I. Stripped of Identity  
+- Ward describes being sentenced to become a Ward and losing his connection to the Stem, enhancements and memories. He struggles to adapt to his new limited existence.
+
+II. Aptitude for Solving Mysteries  
+- Despite his handicaps, Ward shows an unusual ability for solving complex cases during his judge training. His instructors see potential for him to become a Judge's assistant. 
+
+III. The Judge's Arrival   
+- 4 years after becoming a Ward, Judge-1072 arrives from another system to investigate the disappearance of the world's oldest man. During his briefing, Judge selects Ward as his assistant, surprising Ward and his instructors.
+
+IV. The Case Begins  
+- Ward joins Judge in investigating the disappearance. At first, Ward struggles in his limited capacity, frustrated with his handicaps. But as they follow leads, Ward's memories and abilities start to return, allowing him to become a valuable partner to Judge. However, Ward grapples with the guilt of deceiving Judge about his slowly returning identity and role in creating the nootropic drug they uncover.
+
+V. Revelation and Confrontation  
+- Ward ultimately reveals the truth about his past to Judge. Together, they confront the god paradox cult to prevent the spread of the dangerous nootropic drug. Judge helps Ward see his actions were motivated by the same anger that fuels the cult.
+
+VI. Shutting Down the Cult  
+- Ward and Judge work to shut down the cult's operations, though many have already taken the nootropic drug. They are left wondering about the fate of these "transcended" humans.
+
+VII. An Uncertain Future   
+- Despite Ward's past actions, Judge sees his potential for redemption and purpose as his partner. But Ward struggles with what he has unleashed upon the world. Society starts to recognize the need for both rationality and empathy, as embodied in the partnership between Ward and Judge.
+</rough outline>
+
+Example Excerpt to use for informing the writing style:
+
+<example>The Judge had always been one for theatrics, a fact I had long grown accustomed to. So when he insisted one overcast morning that we were setting off to follow a "new lead" in the case, I knew it was mostly for show. His dramatic pronouncements and air of mystery were ways to keep me on my toes - a bit of sport the Judge couldn't help but engage in, especially when things were going slowly.
+
+As Judge navigated the familiar streets of the capital with a flourish, taking the most circuitous route possible to our unspecified destination, I simply shook my head and smiled. His android companion stared at me in something resembling apology, aware as always of Judge's little games and my tolerance of them. Tempted to complain, I decided to keep my mouth shut knowing that Judge was fishin for exactly such a reaction from me. More so than avoiding his trap, I was also willing to go along in the hope that Judge wasn’t just playing a game. Perhaps we really were following a lead, I could never tell with him. 
+
+"Not lost, are we Judge?" I asked with a knowing look. 
+
+He glanced sidelong at me, a smirk lifting one corner of his mouth. "Lost? Certainly not, dear Ward. But I thought, perhaps, we might find ourselves...delayed before the day is out. The chase is on again, you know. Dangers and villains lurk around every turn!"
+
+I sighed, leaning back in the comfort of a transport I had ridden countless times before. His warnings of peril were theatrical as ever. "As you say, Judge. Well then, on with the adventure and dangers that await! I'm right behind you."
+
+His eyes glinted with humor. For a moment the drama dropped as he favored me with a genuine smile as he brought our transport to a stop before a familiar door in a familiar part of town. "Of course you are, Ward! Now, let's see what awaits us, shall we? I daresay things are not always as they seem!" With that and a dramatic whirl of his coat, he exited and made for the door, a new spring in his step. </example?
+
+<style guide>
+Writing style:
+•	Use a first-person memoir format told from Ward's POV. His voice should be compelling yet questionable.
+•	Employ a casual, conversational tone as if Ward is speaking directly to readers. But include subtle hints that all may not be as it seems.
+•	Foreshadow ominously but ambiguously. Drop clues about danger or doom to come without specifics.
+•	Describe events in vivid detail to make the memoir feel authentic and draw readers in. But some details may be manipulative or misleading.
+Devices and methods:
+•	Use dramatic irony - share Ward's recollections while also showing events unfolding in real-time. Let readers see what is coming before Ward knows the outcome.
+•	Include other sources like letters, recordings and news articles to provide other perspectives. But make some sources unreliable or contradictory as well.
+•	Omit or reframe important events or information to mislead readers. Question which version of events is true.
+•	Describe characters and relationships in a way that makes their motives and trustworthiness ambiguous. Keep readers guessing.
+•	Foreshadow red herrings and plot twists readers won't see coming. But drop subtle clues that seem innocuous at first.
+•	Only reveal the full, accurate picture of events at the climax. Make readers work to unravel the truth.
+Key elements to include:
+•	A charming yet dubious narrator who makes readers want to believe yet doubt him
+•	Conflicting information from different sources that sow uncertainty
+•	Foreshadowing and clues that could point to danger for any character but reveal nothing definitive
+•	Secrets, hidden backstories and ulterior motives that make characters' intentions and trustworthiness unclear
+•	A shocking twist or revelation at the climax that makes readers reevaluate everything they thought they knew
+</style guide>
+</ideas>
+
+
+<introduction>
+Chapter 1: Awakening
+Where should I begin my tale? With the moment I first saw the Judge and felt the ground shift under my feet? Or further back, when I had another name and an endless expanse of life stretched before me? No, I don't think we're ready for any of that just yet. Let us instead start at the beginning, with the oldest man. The man who vanquished humanity's greatest enemy: death itself. The man who vanished without a trace 74,300 years later and set off chain of dominos that would be felt across Humanity’s galactic domain. No, that’s a little too much to start off with too.
+Perhaps it is best to start at the moment I died.
+The moment they cut me off from the Stem, the man I had been ceased to exist. My body continued as always, cells endlessly dividing according to their programming. But the essence of myself—the memories, experiences, and enhancements that had shaped my existence—vanished. In their place awoke a stranger.
+Ward 23. A hollow label signifying nothing, erasing any trace of the man I had been. When I first heard that designation, anger surged through this unfamiliar form at the casual theft of my identity. But that anger was misdirected. The label was merely a symptom of the greater theft that had already come to pass: the theft not just of my identity but of meaning, purpose, and my very being. All I knew was the number 23 and that my purpose now was to serve out my sentence to atone for crimes I could not recall committing.
+YES! At last we arrive at the beginning. All that came before was merely prologue. My life was but the prelude to the awakening that began with three small words: You are Ward. An awakening into a world grown strange overnight. Severed from the Stem, stripped of all my cognitive enhancements, I was left merely human. I found myself stumbling through a pale shadow of what had been, an existence now but an echo of lost possibilities.
+Yet without the events that brought me to this point, I would never have found my purpose or grasped the deeper truths of who—and what—I am. My beginning, then, is where my tale must start. Not with the oldest man or events long past, but with the moment the stranger who once inhabited my body died, and I awakened to a new reality in a body that felt at once familiar and foreign. The day I became Ward 23 and embarked upon a journey that would lead me into shadows and secrets never meant for mortal eyes.
+The first days were a blur. I stumbled through the routines set out for me, following the instructions of the monitors who now oversaw my care. Their voices were calm and impersonal, giving directions and doling out basic necessities to keep this alien form functioning. I ate when told, exercised the required amounts, and slept the allotted hours, all the while struggling to make sense of this strange new existence. Each day began with a battery of cognitive and motor tests to assess my mental faculties and rebuild neural pathways long fallen into disuse. At first, the tests were simple: memorize and recite sequences of numbers or words, manipulate basic shapes and patterns, walk a straight line heel to toe. But over time, the tests grew more complex. Solve advanced logic puzzles, reassemble dismantled mechanical parts, navigate an obstacle course with precision and speed. I watched and waited, observing the workings of the facility around me. The monitors came and went on regular schedules, delivering basic necessities and taking away the results of my bodily functions. Cleaning bots hummed through the halls on their preprogrammed routes. Meal trays appeared and disappeared with clockwork regularity. I memorized the details of this world in which I was now captive, looking for some flaw or opening I might exploit. 
+One day, I found myself alone in the testing room facing a puzzle the likes of which I had not seen before. The monitors stared through the glass, tension radiating through the walls. This was no mere assessment of my faculties but a test of something more. 
+A series of statements appeared on the screen, each lacking any clear connection to the others:
+The buffalo roam at night. 
+The square root of four is silence.
+The color blue smells of chamomile.
+Multiple choice options followed, the possible conclusions seeming to bear no relation to the prompt
+A) The morning star rises in the east
+B) A watched pot never boils
+C) The early bird gets the worm
+D) Three lefts make a right
+I blinked at the screen, certain this must be some mistake. I voiced a complaint to the monitors that this made no sense, demanding an explanation.  Their response was insistence that I complete the test. 
+So I answered as asked, trying to find the hidden logic in the nonsense and determine what was being tested. The only conclusion I could draw was that there was no conclusion, the meaning remaining stubbornly out of reach. 
+The questions on the screen grew increasingly bizarre. A portrait of a stern-faced man appeared, demanding I deduce what he had eaten for breakfast based solely on the tightness of his cravat. I shook my head at the absurdity but found my fingers typing a response: porridge with a splash of brandy, final answer. 
+A landscape painting followed, panels popping up detailing the chemical composition of each pigment used. The monitors wanted to know the precise location it depicted. I squinted at the image, taking in details that should have meant nothing. A whisper arose from some hidden part of my mind: the cliffs of Dover at dawn. I submitted the response, unsurprised when the next puzzle appeared.
+On and on they came, each more nonsensical than the last. Determine the title of a book based only on the pattern of ink splotches on its pages. Predict the weather for a location hundreds of years in the past with no records to reference. Explain how a protagonist would solve a mystery with three clues that could point in infinite directions.  
+I found myself slipping into a trance-like state, grasping at intuitions and insights arising from some hidden corner of my mind. The answers flowed freely though I could barely articulate how I came to each conclusion. It was as if parts of my psyche were awakening that had long lain dormant, freed from the constraints of reason and causality. I was deducing without deducting, intuiting without basis or rationale, giving myself over to absurd leaps that by all rights should not have produced coherent responses. 
+Yet on and on the questions came, demanding this strange bit of seeming magic I could not explain. The monitors recorded my every response, measuring and judging some capability they had discovered lurking within—a capability I had not possessed before the theft of my identity. As the last puzzle flashed across the screen, demanding the nationality of the gardener hired to maintain the grounds of an estate in a distant century, I found myself trembling with a mixture of wonder and fear at this bizarre power arising from my newly awakened state. My fingers moved of their own accord, tapping out a response with an assurance I did not feel: French, from the northern region of Calais.
+Whatever I had done, clever or foolish, I sensed it was precisely what the monitors intended. Their scrutiny felt palpable even through the glass, judgment being passed on some facet of my performance I could not discern. Slumping back into the testing chair, I found myself physically and mentally exhausted. Normally, cognitive testing like this would be followed by directed physical exercise in the yard, but today the monitors let me return to my room without interruption. 
+The reprieve from my normally tightly scheduled existence was welcome. Only the regularly scheduled dinner meal tray broke up the hours of unaccustomed stillness. As I ate, my thoughts turned over the strange testing. Up till now, things had made sense. I was in the arduous process of reknitting the neural pathways in my brain that had once been connected to an artificial neo-cortex called a stem, back into their pre-enhanced organic state. Aided by a litany of advanced pharmaceuticals that conditioned my brain to rebuild the long unused pathways within. But what did this bizarre test have to do with that? No, there was some knowledge deep inside me that said it was not that simple. This was not an exercise to rebuild my brain, this was a test and I knew that I had passed it. I knew it as deeply as I knew what nationality of that French gardener.
+A summons came hours after dusk, calling me from my room to the Warden's office. I had not met the Warden since my orientation upon arriving at the facility, our interactions limited to the disembodied voice issuing instructions over the facility's communication system. His office was as spartan as the rest of the building, containing only the bare necessities. The Warden studied me as I entered, gesturing for me to sit across from his desk. "Twenty-Three, my boy, how is your rehabilitation going?" 
+"As well as can be expected, sir. My proctors say I may be eligible for work release soon." 
+The Warden leaned forward, slapping his hands on the desk. "Great! That's precisely the topic I want to discuss. As you know, Wards serve out their sentences by performing useful work for society. Without access to nootropics or a stem, a Ward's value is limited. But there are plenty of tasks requiring a human touch. Most Wards do decades of civil service helping maintain infrastructure. In exchange, they live comfortably until the conclusion of their sentence and are allowed to reconnect to the Stem. Would you like that, Twenty-Three?" 
+Sensing more to the conversation and uncertain how to respond, I simply nodded. I had long grown accustomed to the slightly blank stare omnipresent in Stem-connected staff. I saw it again on the Warden's face now, sensing his mind racing through thousands of thoughts at once and devoting only the barest bit of attention to me. I may as well not have been there. But suddenly, the aloof stare dropped away. I felt the Warden's full attention focused on me like a laser pointed at my forehead. 
+"Aren't you a clever one, Twenty-Three? No, I don't think sewer service is quite right for you. Tell me, how did you find today’s cognitive test? Strange wasn’t it?” 
+I could do little more than nod dumbly, unsure how else to respond. 
+The warden continued studying me, his gaze piercing. “You demonstrated some unusual skills today, Twenty-Three. The testing today showed remarkable, if peculiar, cognitive abilities. Abilities which, if harnessed properly, could prove useful. The Magistrate has taken an interest in candidates demonstrating your...proclivities. With the proper training, you could serve out your sentence in a role far better suited to your talents. Are you familiar with the itinerant judges?”
+
+"No sir," I finally managed to squeak out over the mounting excitement taking root in my stomach.  
+
+"A history lesson then! Long ago, early in the expansion into interstellar space, it was discovered that certain ‘irregular’ minds showed an unusual aptitude for solving crimes that stumped even the most advanced AI systems. Minds that lacked certain...enhancments...seemed able to grasp intricacies and intuit connections that eluded the strictly logical. The Supreme Magistrate authorized the creation of a special force to harness these peculiar abilities: the itinerant judges. 
+
+"Judges travel between systems following the most perplexing cases, applying their unusual methods. They have broad authority and autonomy to pursue investigations as needed. However, there are precious few candidates demonstrating the necessary predispositions. The testing today suggests you may be one such candidate, Twenty-Three. Does this prospect interest you?"
+
+My heart raced at the implications. To escape sewer duty for a role of such prestige and purpose...yet uncertainty lingered. I frowned, considering the offer. "Predispositions, sir?"
+
+The Warden waved a hand dismissively. "An aptitude for grasping subtle cues and making intuitive leaps. The ability to see connections where none seem evident. An inclination to deduce in unconventional ways." He leaned forward intently. "In short, the ability to solve puzzles logic alone cannot. But, of course, candidates must still undergo rigorous assessment and training. Interested?"  
+
+I swallowed hard, hope and fear warring within me. A chance to reclaim a sense of meaning and identity—yet venturing into shadows that might contain more than my fragile psyche could withstand. But the alternative—endless years of menial labor awaiting reconnect to a Stem I no longer craved—held no appeal. I took a deep breath and nodded.
+
+The Warden slapped his hands together, a broad smile breaking across his face. "Excellent! Your training will begin at once. Work hard and stay determined, Twenty-Three. Become a Judge, and the galaxy shall be your puzzle to solve."
+
+My path was set, for good or ill. I had awakened a peculiar gift, and now must learn to master it or be consumed in the attempt. The stranger who was once me had died so I might live again. But what would emerge from the ashes remained to be seen. The only certainty was that a new journey now began, one leading into mysteries vast as the stars themselves. The day of small beginnings was at an end. My future—and purpose—lay in following where my strange intuitions led, no matter how far into shadows they might guide my feet. The awakening had begun.
+</introduction>
+
+<instructions>Continue writing. Start by rewriting the story starting from the paragraph: "No sir" and continue the conversation from where it has been left off. Make whatever improvements to the prose and grammar that you deem necessary. The conversation should explain the origin of iternant judges which were a unique group of people who demonstrated problem solving abilities that far exceed the abilities of the most enhanced and trained Stem users and detective softwares. The supreme magistrate created a special group called itenerant judges who were given broad investigative authorities through out the galatic domain. However, with so few judges they are forced to spend their time hopping between planets and only working on anamolous cases.<instructions>

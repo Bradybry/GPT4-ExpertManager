@@ -5,13 +5,15 @@ from langchain.schema import HumanMessage, SystemMessage
 from config import OPENAI_API_KEY, ANTHROPIC_API_KEY #Import API Keys stored in a separate file. You can do this with envionrment variables as well.
 import datetime
 from pathlib import Path
+import xml.etree.ElementTree as ET
+import html
 
 
 # At the moment langchain API wrappers are needed due to the separation of chat models and language models. These wrappers allow us to use the same interface for both.
 # Class to communicate with OpenAI for generating responses. Wrapped around the langchain wrappers
 class OpenAIModel():
-    def __init__(self, openai_api_key, **model_params):
-        self.chat = ChatOpenAI(openai_api_key=openai_api_key, **model_params)
+    def __init__(self, openai_api_key, model_params):
+        self.chat = ChatOpenAI(openai_api_key=openai_api_key, temperature=model_params['temperature'], max_tokens=model_params['max_tokens'], n=model_params['n'])
     
     def __call__(self, request_messages):
         return self.chat(request_messages).content
@@ -20,7 +22,7 @@ class OpenAIModel():
         return self.chat.generate(message_list)
 
 class AnthropicModel():
-    def __init__(self, anthropic_api_key, **model_params):
+    def __init__(self, anthropic_api_key, model_params):
         self.chat = ChatAnthropic(model=model_params['model_name'], max_tokens_to_sample=model_params['max_tokens'], anthropic_api_key=anthropic_api_key)
     
     def __call__(self, request_messages):
@@ -30,76 +32,65 @@ class AnthropicModel():
     def bulk_generate(self, message_list):
         return self.chat.generate(message_list)
 
-class LanguageExpert: 
-    """Defines an AI assistant/expert for natural language generation.  
+class LanguageExpert:
+    """Defines an AI assistant/expert for natural language generation."""
 
-    Attributes:
-    name (str): Name of the expert
-    system_message (str): Expert's initial greeting message 
-    description (str): Description of the expert's abilities
-    example_input (str): Sample user input the expert can handle 
-    example_output (str): Expert's response to the sample input
-    model_params (dict): Parameters to configure the language model
-    """
-    def __init__(self, name: str, system_message=None, description=None,  
-                 example_input=None, example_output=None, model_params=None):  
+    def __init__(self, preamble: dict, model_params=None):
+        ## Initialize expert attributes from preamble dictionary ##
+        if "model_params" in preamble.keys():
+            if model_params is None:
+                model_params = preamble.pop("model_params")
+            else:
+                preamble.pop("model_params")
+        self.name = preamble.get('name')
+        self.role = preamble.get('role')
+        self.preamble = preamble
 
-        ## Initialize expert attributes##
-        self.name = name  
-        self.system_message = system_message
-        self.description = description 
-        self.example_input = example_input 
-        self.example_output = example_output  
-        
         ##Set default model parameters if none provided##
-        if model_params is None:  
+        if model_params is None:
             model_params = {"model_name": "claude-v1.3", "temperature":  0.00,  
                             "frequency_penalty": 1.0, "presence_penalty":  0.5,  
                             "n": 1, "max_tokens":  512}
         self.model_params = model_params
         self.gen_chat()  #Generate the chat object to get model-specific responses
 
-    def serialize(self): 
-        """Returns a JSON-serializable representation of the expert.
-
-        Returns: 
-        dict: Contains all expert attributes.
-        """
-        return {
-            "name": self.name,
-            "system_message": self.system_message,
-            "description": self.description,
-            "example_input": self.example_input,
-            "example_output": self.example_output,
-            "model_params": self.model_params
-        }
 
     def get_content(self):
-        """Returns the expert definition in an fake XML format.
+        """Returns the expert definition in the new chatXML format."""
+        return SystemMessage(content=self.gen_prompt(self.preamble))
 
-        Returns:
-        SystemMessage: Expert definition wrapped in XML tags.  
-        """
-        content = '<assistant_definition>\n'
+    @staticmethod
+    def gen_prompt(d):
+        xml = f"{LanguageExpert.generate_xml('assistant_instruction', d)}"
+        return LanguageExpert.prettify_xml(xml)
 
-        if self.name:
-            content += f'<name>{self.name}</name>\n'
+    @staticmethod
+    def generate_xml(k, v):
+        if isinstance(v, str):
+            xml = f"<{k}>{html.escape(v)}</{k}>"
+        elif isinstance(v, dict):
+            xml = f"<{k}>"
+            for key, value in v.items():
+                xml += LanguageExpert.generate_xml(key, value)
+            xml += f"</{k}>"
+        elif isinstance(v, list):
+            xml = ""
+            for element in v:
+                if isinstance(element, dict):
+                    for sub_k, sub_v in element.items():
+                        xml += LanguageExpert.generate_xml(sub_k, sub_v)
+                else:  # If the element is not a dictionary, treat it as a string
+                    xml += LanguageExpert.generate_xml(k, element)
+        else:
+            xml = f"<{k}>{v}</{k}>"
+        return xml
 
-        if self.description:
-            content += f'<role>{self.description}</role>\n'
-
-        if self.system_message:
-            content += f'<system_message>{self.system_message}</system_message>\n'
-
-        if example_input := self.example_input:
-            content += f'<example_input>{example_input}</example_input>\n'
-
-        if example_output := self.example_output:
-            content += f'<example_output>{example_output}</example_output>\n'
-
-        content += '</assistant_definition>'
-
-        return SystemMessage(content=content)
+    @staticmethod
+    def prettify_xml(xml_string):
+        root = ET.fromstring(xml_string)
+        ET.indent(root)
+        return ET.tostring(root, encoding="unicode")
+    
     def generate(self, message): 
         """Generates a response to the input message. 
 
@@ -147,7 +138,7 @@ class LanguageExpert:
         Returns:
         list: List of plain text responses
         """   
-        return [generation[0].text for generation in generations]
+        return [generation[0].text.strip() for generation in generations]
 
     def bulk_generate(self, messages:list):
         """Generates responses for multiple input messages.
@@ -195,9 +186,9 @@ class LanguageExpert:
         on the model_name parameter. 
         """
         if self.model_params["model_name"]in ["gpt-4", "gpt-3.5-turbo"]:
-            self.chat = OpenAIModel(openai_api_key=OPENAI_API_KEY, **self.model_params)
+            self.chat = OpenAIModel(openai_api_key=OPENAI_API_KEY, model_params = self.model_params)
         elif self.model_params["model_name"] in ['claude-v1.3', 'claude-v1.3-100k']:
-            self.chat = AnthropicModel(anthropic_api_key=ANTHROPIC_API_KEY, **self.model_params)
+            self.chat = AnthropicModel(anthropic_api_key=ANTHROPIC_API_KEY, model_params = self.model_params)
         else:
             raise 'Model not supported'
     
@@ -261,8 +252,9 @@ class Manager(object):
 
         Returns:
         LanguageExpert: corresponding expert object 
-        """   
-        return LanguageExpert(**self.experts[expert_name])
+        """
+        model_params = self.experts[expert_name]['model_params']   
+        return LanguageExpert(self.experts[expert_name], model_params=model_params)
 
     def save(self, outfile):
         """Save all experts to file. This will overwrite any existing file and only store the experts in the current manager.
@@ -320,7 +312,7 @@ def gen_prompt(manager):
     expandedIdea = f'<prompt_proposal>{expandedIdea}</prompt_proposal> Please generate a properly formatted agent definition based on the supplied prompt proposal. '
     formattedPrompt = generator(expandedIdea)
     prompt = parse_assistant_definition(formattedPrompt)
-    expert = LanguageExpert(**prompt)
+    expert = LanguageExpert(prompt)
     manager.add_expert(expert)
     print(expert.name)
     print(expert.get_content().content)
@@ -350,7 +342,7 @@ def improve(target, manager):
     new_expert = suggestion(prompt)
     try:
         new_expert = parse_assistant_definition(new_expert)
-        new_expert = LanguageExpert(**new_expert, model_params=target.model_params)
+        new_expert = LanguageExpert(new_expert, model_params=target.model_params)
     except Exception:
         print('Failed to parse suggestion')
     return new_expert
